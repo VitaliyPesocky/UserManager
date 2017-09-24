@@ -39,7 +39,7 @@ public class UserRepositoryImpl implements UserRepository {
     public void removeUser(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         User contact = session.load(User.class, id);
-        if(contact != null){
+        if (null != contact) {
             session.delete(contact);
         }
     }

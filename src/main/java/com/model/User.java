@@ -19,7 +19,7 @@ public class User {
     @Basic
     @Column(name = "name")
     @NotNull
-    private String Name;
+    private String name;
 
     @Basic
     @Column(name = "age")
@@ -39,6 +39,17 @@ public class User {
 
     }
 
+    public User(String name, boolean isAdmin) {
+        this.name = name;
+        this.isAdmin = isAdmin;
+    }
+
+    public User(String name, int age, boolean isAdmin) {
+        this.name = name;
+        this.age = age;
+        this.isAdmin = isAdmin;
+    }
+
     public int getId() {
         return id;
     }
@@ -48,11 +59,11 @@ public class User {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getAge() {
@@ -67,7 +78,7 @@ public class User {
         return createdDate;
     }
 
-    public void setCreatedDate(Timestamp createdDate) {
+    public void setCreatedDate() {
         this.createdDate = new Timestamp(System.currentTimeMillis());
     }
 
@@ -89,14 +100,14 @@ public class User {
         if (id != user.id) return false;
         if (age != user.age) return false;
         if (isAdmin != user.isAdmin) return false;
-        if (Name != null ? !Name.equals(user.Name) : user.Name != null) return false;
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
         return createdDate != null ? createdDate.equals(user.createdDate) : user.createdDate == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (Name != null ? Name.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + age;
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (isAdmin ? 1 : 0);

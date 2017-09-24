@@ -1,4 +1,4 @@
 jdbc.driverClassName = org.postgresql.Driver
-url = jdbc:postgresql://localhost:5432/postgres
-userName = postgres
-password = selfles635
+jdbc.url = jdbc:postgresql://localhost:5432/postgres
+jdbc.userName = postgres
+jdbc.password = selfles635
